@@ -15,8 +15,8 @@ const DImage: React.FC<Props> = ({}) => {
       <h1>Draggable Image</h1>
       <Canvas  componentProps={{scale}} width={600} height={600} type={CanvasFunc.DraggableImage} />
       <div className="btn-group">
-        <button onClick={() => setScale(scale+0.1)} style={{padding:5, marginRight: 5}}>+</button>
-        <button onClick={() => setScale(scale-0.1)} style={{padding:5}}>-</button>
+        <button onClick={() => setScale(scale+0.1)} style={{marginRight: 15}}>+</button>
+        <button onClick={() => setScale(scale-0.1)}>-</button>
       </div>
     </div>
   );

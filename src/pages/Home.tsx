@@ -10,6 +10,7 @@ const Home: React.FC<Props> = ({}) => {
       <ul>
         <li><Link to='/draggable-stars'>Draggable Stars</Link></li>
         <li><Link to='/draggable-image'>Draggable Image</Link></li>
+        <li><Link to='/image-with-mask'>Image with Mask</Link></li>
       </ul>
     </div>
   );
