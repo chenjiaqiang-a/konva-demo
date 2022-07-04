@@ -13,10 +13,20 @@ const DImage: React.FC<Props> = ({}) => {
         <Link to="/">Backward</Link>
       </div>
       <h1>Draggable Image</h1>
-      <Canvas  componentProps={{scale}} width={600} height={600} type={CanvasFunc.DraggableImage} />
+      <Canvas
+        componentProps={{ scale }}
+        width={600}
+        height={600}
+        type={CanvasFunc.DraggableImage}
+      />
       <div className="btn-group">
-        <button onClick={() => setScale(scale+0.1)} style={{marginRight: 15}}>+</button>
-        <button onClick={() => setScale(scale-0.1)}>-</button>
+        <button
+          onClick={() => setScale(scale + 0.1)}
+          style={{ marginRight: 15 }}
+        >
+          +
+        </button>
+        <button onClick={() => setScale(scale - 0.1)}>-</button>
       </div>
     </div>
   );

@@ -2,15 +2,18 @@ import React from 'react';
 import { Stage } from 'react-konva';
 import DStarCanvas from './DStarCanvas';
 import ImageCanvas from './ImageCanvas';
+import MaskCanvas from './MaskCanvas';
 
 export enum CanvasFunc {
   DraggableStars = 'DraggableStars',
   DraggableImage = 'DraggableImage',
+  ImageWithMask = 'ImageWithMask',
 }
 
 const CanvasComp = {
   [CanvasFunc.DraggableStars]: DStarCanvas,
   [CanvasFunc.DraggableImage]: ImageCanvas,
+  [CanvasFunc.ImageWithMask]: MaskCanvas,
 };
 
 export interface CanvasProps {

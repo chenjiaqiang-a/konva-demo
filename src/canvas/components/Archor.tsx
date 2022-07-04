@@ -18,12 +18,13 @@ interface TextSize {
 }
 
 const Archor: React.FC<ArchorProps> = ({
-  label,
+  label = '',
   color,
   labelColor,
   ...pos
 }) => {
   const textRef = useRef<konva.Text>(null);
+  const [shadow, setShandow] = useState<number>(0);
   const [textSize, setTextSize] = useState<TextSize>({ width: 0, height: 0 });
 
   useEffect(() => {
@@ -34,24 +35,34 @@ const Archor: React.FC<ArchorProps> = ({
   }, []);
 
   return (
-    <Group x={pos.x} y={pos.y}>
+    <Group
+      x={pos.x}
+      y={pos.y}
+      onMouseEnter={() => setShandow(0.7)}
+      onMouseLeave={() => setShandow(0)}
+    >
       <Rect
+        shadowColor={color ? color : '#000'}
+        shadowBlur={shadow}
         width={pos.width}
         height={pos.height}
         stroke={color ? color : '#000'}
-        strokeWidth={2}
+        strokeWidth={3}
       />
-      {label && (
-        <Group  x={-4} y={-4}>
-          <Rect fill={color ? color : '#000'} {...textSize} />
-          <Text
-            ref={textRef}
-            text={label}
-            fontSize={12}
-            fill={labelColor ? labelColor : '#fff'}
-          />
-        </Group>
-      )}
+      <Group x={-4} y={-4}>
+        <Rect
+          fill={color ? color : '#000'}
+          {...textSize}
+          shadowColor={color ? color : '#000'}
+          shadowBlur={shadow}
+        />
+        <Text
+          ref={textRef}
+          text={label}
+          fontSize={12}
+          fill={labelColor ? labelColor : '#fff'}
+        />
+      </Group>
     </Group>
   );
 };
